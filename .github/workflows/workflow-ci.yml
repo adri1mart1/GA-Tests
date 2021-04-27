@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - '*'
-    tags:
-      - 'v*.*.*'
+      - '!master'
   pull_request:
     branches:
       - '*'
@@ -25,5 +24,4 @@ jobs:
       - name: unit-tests
         run: echo "unit-tests passed"
 
-      - name: Build docker image
-        run: echo "docker image built"
+      - uses: ./.github/actions/docker-build

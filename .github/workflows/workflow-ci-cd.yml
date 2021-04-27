@@ -1,0 +1,34 @@
+name: workflow-ci-cd
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  workflow-ci-cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ./.github/actions/install-requirements
+        with:
+          who-to-greet: 'workflow-ci'
+
+      - name: unit-tests
+        run: echo "unit-tests passed"
+
+      - uses: ./.github/actions/docker-build
+
+      - name: push latest image to docker hub
+        run: echo "push latest image to docker hub"
+
+      - name: push released image to docker hub
+        if:
+          contains('refs/tags/v', 'github.ref')
+        steps:
+          - run: echo "push released image to docker hub"

@@ -1,0 +1,7 @@
+name: 'docker build'
+description: 'docker build for GA tests repo'
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "install requirements for ${{ inputs.who-to-greet }}"
+      shell: bash

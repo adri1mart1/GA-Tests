@@ -30,5 +30,4 @@ jobs:
       - name: push released image to docker hub
         if:
           contains('refs/tags/v', 'github.ref')
-        steps:
-          - run: echo "push released image to docker hub"
+        run: echo "push released image to docker hub"

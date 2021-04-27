@@ -9,3 +9,4 @@ runs:
   using: 'composite'
   steps:
     - run: echo "install requirements for ${{ inputs.who-to-greet }}"
+      shell: bash

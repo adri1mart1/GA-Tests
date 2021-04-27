@@ -1,0 +1,11 @@
+name: 'install requirements'
+description: 'install requirements for GA tests repo'
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'unknwon'
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "install requirements for ${{ inputs.who-to-greet }}"

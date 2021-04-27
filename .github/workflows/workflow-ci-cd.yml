@@ -29,6 +29,5 @@ jobs:
         run: echo "push latest image to docker hub"
 
       - name: push released image to docker hub
-        if:
-          contains('refs/tags/v', 'github.ref')
+        if: contains('refs/tags/v', 'github.ref')
         run: echo "push released image to docker hub"

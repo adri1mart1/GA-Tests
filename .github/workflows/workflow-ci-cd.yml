@@ -30,4 +30,4 @@ jobs:
 
       - name: push released image to docker hub
         if: startsWith(github.ref, 'refs/tags/v')
-        run: echo "push released image to docker hub"
+        run: echo "push released image ${GITHUB_REF:10} to docker hub"
